@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9ecf, #ff6fb5);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+    color: white;
+}
+
+h1 {
+    margin-top: 40px;
+    font-size: 48px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+img {
+    margin-top: 20px;
+    max-width: 85%;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    animation: fadeIn 3s ease-in-out;
+}
+
+.love-message {
+    margin-top: 25px;
+    font-size: 28px;
+}
+
+button {
+    margin-top: 25px;
+    padding: 15px 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: white;
+    color: #ff4da6;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #ffe6f2;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* หัวใจลอย */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 24px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(0) scale(1);}
+    100% {transform: translateY(-100vh) scale(1.5);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine's Day ❤️</h1>
+
+<img src="valentine.png" alt="รูปคู่ของเรา">
+
+<div class="love-message">
+    รักเธอที่สุดในโลกเลยนะ 💕
+</div>
+
+<button onclick="showLove()">กดเพื่อรับความรัก 💖</button>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function showLove() {
+    alert("เค้ารักเธอมากกว่าทุกวันเลยนะ ❤️🥰");
+    document.getElementById("bgMusic").play();
+}
+
+/* สร้างหัวใจลอย */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
